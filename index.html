@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#1557FF">
+  <title>咨询顾问模拟器｜麦波恩咨询</title>
+  <link rel="icon" href="./assets/images/avatars/ba.png">
+  <link rel="stylesheet" href="./styles/tokens.css">
+  <link rel="stylesheet" href="./styles/base.css">
+  <link rel="stylesheet" href="./styles/scenes.css">
+  <link rel="stylesheet" href="./styles/animation.css">
+</head>
+<body>
+  <main id="app" class="app-shell">
+    <section id="opening" class="scene opening active" aria-label="麦波恩咨询入职动画">
+      <button id="skip-opening" class="skip">跳过动画</button>
+      <div class="opening-stage">
+        <div class="pixel-logo"><b>M</b><b>B</b><b>B</b></div>
+        <h1>麦波恩咨询</h1>
+        <div class="tower"><span></span><span></span><span></span><em>梦想，从顶楼开始</em></div>
+        <div class="offer"><small>正式录用通知</small><strong>OFFER / Business Analyst</strong><span>预计下班：待定</span></div>
+        <div class="candidate"><i>💼</i><span>UP OR OUT</span></div>
+        <div class="opening-final"><p>你的咨询人生现在开始</p><button id="start-game" class="primary">开始卷 →</button></div>
+      </div>
+    </section>
+
+    <section id="game" class="scene game">
+      <header class="rank-header">
+        <img id="avatar" class="avatar" src="./assets/images/avatars/ba.png" alt="Business Analyst 像素头像">
+        <div class="rank-copy">
+          <small id="year-label">YEAR 01 · 第 1 年</small>
+          <h2 id="rank-label">Business Analyst / 商业分析师</h2>
+          <span id="cycle-label">本职级第 1 / 2 年</span>
+        </div>
+      </header>
+
+      <article class="event-card">
+        <div class="issue"><span id="tone-label">PROJECT REALITY</span><b id="event-count">01 / 03</b></div>
+        <h3 id="event-title"></h3>
+        <p id="event-body"></p>
+      </article>
+
+      <section class="decision-block" aria-labelledby="decision-title">
+        <div class="section-kicker"><span id="decision-title">你的决定</span><small>选了就不能撤回</small></div>
+        <div class="choices" id="choices"></div>
+      </section>
+
+      <aside id="progress-panel" class="progress-panel" aria-label="本轮状态">
+        <div class="progress-heading"><span>本轮状态</span><small>晋升委员会会记住这些</small></div>
+        <div class="chance">
+          <span>晋升概率 <b id="chance-number">38%</b></span>
+          <div class="meter"><i id="chance-fill"></i></div>
+        </div>
+        <div class="stats" id="stats"></div>
+      </aside>
+    </section>
+
+    <section id="result" class="scene overlay">
+      <div class="result-box">
+        <small>选择后果 / CONSEQUENCE</small>
+        <h2 id="result-title">事情发生了</h2>
+        <p id="result-story"></p>
+        <div id="result-delta" class="result-delta">晋升概率 +0%</div>
+        <div id="result-effects" class="result-effects"></div>
+        <button id="next-event" class="primary">接受现实 →</button>
+      </div>
+    </section>
+
+    <section id="year-end" class="scene year-end">
+      <div class="year-end-card">
+        <small>YEAR-END REVIEW</small>
+        <div class="year-stamp" id="year-end-number">YEAR 01</div>
+        <h2 id="year-end-title">第一年结束</h2>
+        <p id="year-end-copy">你交完了最后一版，也真的活到了年底。</p>
+        <button id="continue-year" class="primary">进入第二年 →</button>
+      </div>
+    </section>
+
+    <section id="review" class="scene review">
+      <div class="review-room">
+        <small>YEAR-END COMMITTEE</small>
+        <h2>晋升委员会</h2>
+        <img id="review-avatar" class="review-avatar" src="./assets/images/avatars/ba.png" alt="Business Analyst 晋升评审头像">
+        <p>最终晋升概率</p>
+        <strong id="review-target">38%</strong>
+        <p id="review-copy">合伙人们正在交换意味深长的眼神……</p>
+        <ol id="review-debate" class="review-debate" aria-live="polite"></ol>
+        <div id="review-result" class="review-result" aria-live="polite"></div>
+        <button id="review-next" class="primary">查看决定</button>
+      </div>
+    </section>
+
+    <section id="promotion" class="scene promotion">
+      <div class="burst">PROMOTED!</div>
+      <img id="promotion-avatar" class="hero-avatar" src="./assets/images/avatars/consultant.png" alt="晋升后的职级头像">
+      <h2 id="promotion-rank"></h2>
+      <p>西装升级，责任翻倍，睡眠不详。</p>
+      <button id="continue-career" class="primary">去更高一层 →</button>
+    </section>
+
+    <section id="report" class="scene report">
+      <header><small>CAREER EXIT MEMO</small><h2>职业旅程报告</h2></header>
+      <canvas id="report-canvas" width="1080" height="1420" aria-label="职业旅程报告图片"></canvas>
+      <div class="report-actions"><button id="share-report" class="primary">分享报告</button><button id="restart-game">重新入职</button></div>
+      <div id="share-prompt" class="share-prompt" role="dialog" aria-modal="true" aria-labelledby="share-prompt-title" hidden>
+        <div class="share-prompt-card">
+          <small>分享报告</small>
+          <h3 id="share-prompt-title">截图就好</h3>
+          <p>请截图保存这张报告，再分享给朋友。</p>
+          <button id="close-share-prompt" class="primary">知道了</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button id="audio-toggle" class="audio-toggle" type="button" aria-pressed="true">🔊 音乐</button>
+
+  <script src="./scripts/namespace.js"></script>
+  <script src="./scripts/config.js"></script>
+  <script src="./scripts/random.js"></script>
+  <script src="./scripts/state.js"></script>
+  <script src="./scripts/event-engine.js"></script>
+  <script src="./scripts/promotion-engine.js"></script>
+  <script src="./scripts/content/npcs.js"></script>
+  <script src="./scripts/content/events-storyline.js"></script>
+  <script src="./scripts/content/endings.js"></script>
+  <script src="./scripts/content/life-endings.js?v=20260907-share1"></script>
+  <script src="./scripts/report-model.js?v=20260907-share1"></script>
+  <script src="./scripts/ui/dom.js"></script>
+  <script src="./scripts/ui/opening.js"></script>
+  <script src="./scripts/ui/game-view.js"></script>
+  <script src="./scripts/audio-score.js"></script>
+  <script src="./scripts/audio.js"></script>
+  <script src="./scripts/ui/effects.js"></script>
+  <script src="./scripts/ui/report-canvas.js?v=20260907-share1"></script>
+  <script src="./scripts/platform.js"></script>
+  <script src="./scripts/app.js?v=20260907-share1"></script>
+</body>
+</html>

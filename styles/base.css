@@ -1,0 +1,16 @@
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+html{touch-action:manipulation}
+body{background:#84a9ff;color:var(--ink);font-family:Arial,"PingFang SC","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none}
+.app-shell{width:100%;max-width:480px;min-height:100vh;min-height:var(--app-height,100vh);margin:0 auto;background:var(--paper);overflow:hidden;padding-top:0;padding-top:var(--safe-area-inset-top,env(safe-area-inset-top,0px));padding-bottom:0;padding-bottom:var(--safe-area-inset-bottom,env(safe-area-inset-bottom,0px));position:relative;box-shadow:0 0 40px rgba(0,0,0,.3)}
+button{font:inherit;min-height:48px;border:3px solid var(--ink);background:var(--white);color:var(--ink);font-weight:900;padding:10px 14px;box-shadow:4px 4px 0 var(--ink);cursor:pointer;-webkit-appearance:none;appearance:none}
+button:focus{outline:4px solid var(--yellow);outline-offset:2px}
+button:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+button:disabled{opacity:.55}
+.primary{background:var(--yellow)}
+.scene{display:none;min-height:100vh;min-height:var(--app-height,100vh);padding:18px}
+.scene.active{display:flex;flex-direction:column}
+small{font-weight:900;letter-spacing:1px}
+img{max-width:100%}
+.audio-toggle{position:fixed;z-index:20;right:12px;bottom:12px;min-height:38px;padding:6px 10px;font-size:12px;background:#fff}
+@media (min-width:430px){.scene{padding:22px}}

@@ -1,0 +1,1 @@
+(function(root){"use strict";var M=root.MBB;M.playOpening=function(){var scene=M.byId("opening");scene.classList.remove("skip-animation");M.showScene("opening");};M.skipOpening=function(){M.byId("opening").classList.add("skip-animation");};})(window);
