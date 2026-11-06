@@ -29,6 +29,9 @@
     do { window.crypto.getRandomValues(value); } while (value[0] >= limit);
     return value[0] % length;
   }
+  let storage;
+  try { storage = window.localStorage; } catch (_) { /* Private browsing may block storage. */ }
+  const drawRestaurant = window.FoodDraw.createDrawer(randomIndex, storage);
   function renderList() {
     const choices = pool();
     byId('pool-count').textContent = choices.length + ' 家待选';
@@ -83,7 +86,8 @@
     byId('draw-label').textContent = '好饭正在路上…';
     byId('status').textContent = '哗啦哗啦，让签筒替你想一想…';
     const choices = pool();
-    const chosen = choices[randomIndex(choices.length)];
+    const chosenName = drawRestaurant(choices.map(item => item.name));
+    const chosen = choices.find(item => item.name === chosenName);
     await pause(reducedMotion.matches ? 100 : 1550);
     stage.className = 'stage revealing';
     byId('status').textContent = '签出来了，看看今天的好食运。';
