@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f5efdf">
+  <meta name="description" content="选择困难，交给这一签。19 家餐厅，摇一摇决定今天吃什么。">
+  <title>今天吃什么｜麦波恩饭签局</title>
+  <link rel="icon" href="./seal.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <a class="back" href="../">← 麦波恩模拟器</a>
+      <span class="brand"><img src="./seal.svg" alt="" width="28" height="28"> 饭签局</span>
+    </header>
+    <main>
+      <div class="heading">
+        <p class="eyebrow">麦波恩 · 干饭特别企划</p>
+        <h1>今天吃什么<span>？</span></h1>
+        <p class="intro">工作已经够难了，吃饭就交给这一签。</p>
+      </div>
+      <div class="layout">
+        <section class="draw-panel" aria-label="摇签选餐厅">
+          <div class="panel-top"><span><i></i> 宜 · 好好吃饭</span><span id="pool-count">19 家待选</span></div>
+          <div class="stage" id="stage">
+            <div class="halo" aria-hidden="true"></div>
+            <span class="side-note left-note" aria-hidden="true">一签解千愁</span>
+            <span class="side-note right-note" aria-hidden="true">万事饭为先</span>
+            <span class="spark spark-one" aria-hidden="true">✦</span><span class="spark spark-two" aria-hidden="true">✧</span>
+            <div class="vessel" aria-hidden="true">
+              <div class="sticks">
+                <i style="--x:34px;--r:-24deg;--y:23px"></i><i style="--x:58px;--r:-17deg;--y:4px"></i>
+                <i style="--x:80px;--r:-9deg;--y:12px"></i><i style="--x:103px;--r:1deg;--y:0px"></i>
+                <i style="--x:126px;--r:9deg;--y:14px"></i><i style="--x:148px;--r:18deg;--y:5px"></i>
+                <i style="--x:169px;--r:25deg;--y:27px"></i>
+              </div>
+              <div class="lucky-stick"><span>今日好食</span></div>
+              <div class="cup-rim"></div>
+              <div class="cup"><div class="cup-label"><small>麦波恩</small><strong>食</strong><span>好 饭 自 来</span></div></div>
+              <div class="cup-foot"></div>
+            </div>
+            <div class="vessel-shadow" aria-hidden="true"></div>
+            <article id="result" class="result" aria-labelledby="result-name" hidden>
+              <div class="ticket-top"><span id="result-number">第 01 签</span><b>上上签</b></div>
+              <p class="result-caption">这一顿，就吃</p>
+              <span id="result-emoji" class="result-emoji" aria-hidden="true"></span>
+              <h2 id="result-name"></h2>
+              <span id="result-category" class="result-category"></span>
+              <p class="fortune">人间烟火气，最抚打工人。</p>
+              <div class="ticket-bottom">今日签语 · 好好吃饭，好好生活</div>
+            </article>
+          </div>
+          <div class="draw-controls">
+            <p id="status" class="status" role="status" aria-live="polite">心里默念「吃什么」，然后摇一签。</p>
+            <button id="draw" class="draw-button" type="button"><span aria-hidden="true">✦</span> <span id="draw-label">摇一签，开饭</span> <span aria-hidden="true">↗</span></button>
+            <p class="draw-footnote">每家餐厅机会均等 · 想换一家就再摇一次</p>
+          </div>
+        </section>
+        <aside class="menu-panel" aria-labelledby="menu-heading">
+          <div class="menu-title"><div><p class="eyebrow">THE LUNCH SHORTLIST</p><h2 id="menu-heading">今天想吃哪一口</h2></div><span class="menu-mark" aria-hidden="true">食<br>运</span></div>
+          <p class="filter-help">选个菜系，或把选择交给缘分。</p>
+          <div id="filters" class="filters" role="group" aria-label="按菜系筛选"></div>
+          <div class="list-heading"><span>签筒里的餐厅</span><span id="list-count">19 家</span></div>
+          <ul id="restaurants" class="restaurant-list"></ul>
+          <p class="menu-note">不必做攻略，今天的快乐从一顿饭开始。</p>
+        </aside>
+      </div>
+    </main>
+    <footer><span>麦波恩饭签局</span><span>人生大事，吃饭算一件。</span><span>先吃饭，再开会 ↗</span></footer>
+    <noscript><p class="noscript">请启用 JavaScript 后摇签。</p></noscript>
+  </div>
+</body>
+</html>

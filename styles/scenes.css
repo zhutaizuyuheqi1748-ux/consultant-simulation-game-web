@@ -1,6 +1,10 @@
 .opening{background:var(--blue);color:#fff;position:relative;text-align:center}
 .skip{position:absolute;right:16px;top:16px;z-index:5;background:#fff;font-size:12px;min-height:40px}
 .opening-stage{margin:auto;width:100%}
+.food-entry{position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:12px;margin:52px 0 22px;padding:12px 14px;min-height:48px;background:#fff2ba;color:var(--ink);border:var(--border);box-shadow:var(--shadow);font-size:14px;font-weight:900;text-decoration:none}
+.food-entry span{font-size:12px;color:#a63424}
+.food-entry:hover{background:#ffe38a}
+.food-entry:focus-visible{outline:4px solid #fff;outline-offset:4px}
 .pixel-logo{display:flex;justify-content:center}
 .pixel-logo b{font-size:52px;line-height:64px;width:66px;margin:4px;background:var(--yellow);color:var(--ink);border:var(--border);box-shadow:5px 5px 0 var(--ink)}
 .opening h1{font-size:32px;margin:12px}
